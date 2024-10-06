@@ -1,6 +1,6 @@
 import express from "express";
 import { isAuthenticated } from "../middlewares/isAuthenticated.js";
-import {getMyProfile, getAllUsers, register, login } from "../controllers/controllers.js"
+import {getMyProfile, getAllUsers, register, login, logout } from "../controllers/controllers.js"
 
 const router = express.Router();
 
@@ -14,6 +14,8 @@ router.get("/all", getAllUsers);
 router.post("/new", register);
 
 router.post("/login", login);
+
+router.get("/logout", logout);
 
 router.get("/me", isAuthenticated, getMyProfile);
 

@@ -53,4 +53,14 @@ const getMyProfile = (req, res) => {
 
 };
 
-export { getMyProfile, getAllUsers, register, login };
+const logout = (req, res) => {
+
+    res.status(200).cookie("token", "", { expires: new Date(Date.now()) }).json({
+        success: true,
+        message: "User Logout"
+    })
+
+};
+
+
+export { getMyProfile, getAllUsers, register, login, logout };
