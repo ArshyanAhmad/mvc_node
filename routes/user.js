@@ -1,20 +1,17 @@
 import express from "express";
-import { createUser, deleteUser, findUser, getAllUsers, putUser, specialRoute } from "../controllers/controllers.js";
+import {getUserDetails, getAllUsers, register, login } from "../controllers/controllers.js"
 
 const router = express.Router();
 
-router.get("/userid/special", specialRoute);
-
-router.route("/userid/:id").get(findUser).put(putUser).delete(deleteUser);
-
-// router.get("/userid/:id", findUser);
-
-// router.put("/userid/:id", putUser);
-
-// router.delete("/userid/:id", deleteUser);
+/* Both are same
+   router.route("/userid/:id").get(getUserDetails);
+*/
+router.get("/userid/:id", getUserDetails);
 
 router.get("/all", getAllUsers);
 
-router.post("/new", createUser);
+router.post("/new", register);
+
+router.post("/login", login);
 
 export default router;
