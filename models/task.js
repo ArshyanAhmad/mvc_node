@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
     title: {
-        type:String,
+        type: String,
         required: true
     },
     description: {
@@ -13,15 +13,15 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    user:{
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: true
     },
-    createAt:{
+    createdAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now,
     }
-})
+});
 
-export const Task = mongoose.model("Taks", userSchema);
+export const Task = mongoose.model("Task", userSchema);

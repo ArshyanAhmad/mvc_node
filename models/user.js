@@ -11,14 +11,15 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     password: {
-        type:String,
+        type: String,
         required: true,
         select: false
     },
-    createAt:{
+    createdAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now,
     }
-})
+
+});
 
 export const User = mongoose.model("User", userSchema);
